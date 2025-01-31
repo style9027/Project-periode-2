@@ -73,3 +73,28 @@ const statDecayInterval = setInterval(decreaseStats, 5000);
 
 
 updateBars();
+
+function updateCharacterFace() {
+    const character = document.getElementById("character");
+
+    if (hunger < 20) {
+        character.textContent = "😡"; 
+    } else if (happiness < 20) {
+        character.textContent = "😢"; 
+    } else if (cleanliness < 20) {
+        character.textContent = "🤢"; 
+    } else if (happiness > 80) {
+        character.textContent = "😃"; 
+    } else {
+        character.textContent = "😊"; 
+    }
+}
+
+function updateBars() {
+    hungerBar.style.width = `${hunger}%`;
+    happinessBar.style.width = `${happiness}%`;
+    cleanlinessBar.style.width = `${cleanliness}%`;
+
+    updateCharacterFace();
+}
+
